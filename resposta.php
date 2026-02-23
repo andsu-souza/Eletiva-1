@@ -1,3 +1,3 @@
 <?php
-    $nome = $_POST['nome'];
+    $nome = $_POST['Nome'];
     echo "Seja Bem Vindo $nome !";
