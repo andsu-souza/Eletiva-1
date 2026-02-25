@@ -10,3 +10,5 @@ vanessaborges2.github.io/Gerador-Formulario
 Gerador de Formulário
 
 php -S localhost:8000
+
+alt + shift + f
