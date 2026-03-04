@@ -13,3 +13,10 @@ php -S localhost:8000
 http://localhost:8000/exercicio2.php
 
 alt + shift + f
+
+Todo formulário precisa ter metodo e action
+Formulario = post // barra de pesquisa = get
+
+Estruturas de controle (if, elseif, else),(switch, case, default)
+
+Estrutura de repetição (while, do while, for)
