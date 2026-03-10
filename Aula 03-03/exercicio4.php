@@ -13,7 +13,7 @@
         <h1>Exercício 4</h1>
         <form method="post">
             <div class="mb-3">
-                <label for="valor1" class="form-label">Primeiro Valor:</label>
+                <label for="valor1" class="form-label">Digite o valor:</label>
                 <input type="number" id="valor1" name="valor1" class="form-control" required="">
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
