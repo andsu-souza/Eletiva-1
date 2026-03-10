@@ -22,15 +22,13 @@
             if($_SERVER['REQUEST_METHOD'] == "POST"){
                 $valor1 = $_POST['valor1'];
             
-                if ($valor1 < ){
-                    echo ("<p>Os valores são identicos!</p>");
-                    echo ("<p>$valor1</p>");
+                if ($valor1 > 100){
+                    $valor1 = $valor1 * 0.85;
+                    echo ("<p>O Valor com desconto ficou: $valor1</p>");
                 }
-                elseif($valor1 < $valor2)
-                    echo ("<p>A ordem crescente é: $valor1 , $valor2</p>");
             
                 else
-                    echo ("<p>A ordem crescente é: $valor2 , $valor1</p>");
+                    echo ("<p>O valor sem desconto é: $valor1</p>");
             }
         ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
