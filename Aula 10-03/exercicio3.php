@@ -4,27 +4,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Exercício 2</title>
+  <title>Exercício 3</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
   <div class="container py-3">
-    <h1>Exercício 2</h1>
+    <h1>Exercício 3</h1>
     <form method="post">
       <div class="mb-3">
-        <label for="word1" class="form-label">Digite a palavra</label>
+        <label for="word1" class="form-label">Digite a primeira palavra:</label>
         <input type="text" id="word1" name="word1" class="form-control" required="">
+      </div>
+      <div class="mb-3">
+        <label for="word2" class="form-label">Digite a segunda palavra:</label>
+        <input type="text" id="word2" name="word2" class="form-control" required="">
       </div>
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
     <?php
             if($_SERVER['REQUEST_METHOD'] == "POST"){
                 $word1 = $_POST['word1'];
+                $word2 = $_POST['word2'];
 
-                $maiuscula = strtoupper($word1);
-                $minuscula = strtolower($word1);
-                echo "<p>A palavra maiúscula fica $maiuscula e minúscula fica $minuscula!</p>";
+                if (str_contains($word1, $word2)){
+                    echo "<p>A palavra '$word2' está contida na primeira!</p>";
+                } else {
+                    echo "<p>A palavra '$word2' não está contida na primeira!</p>";
+                }
             }
         ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
