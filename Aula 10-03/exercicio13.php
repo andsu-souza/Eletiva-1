@@ -22,8 +22,17 @@
             if($_SERVER['REQUEST_METHOD'] == "POST"){
                 $word1 = $_POST['word1'];
 
-                $totalpalavras = $word1;
-                echo "<p>R$$valorformatado</p>";
+                $totalpalavras = str_word_count($word1);
+                echo "<p>Total de palavras: $totalpalavras</p>";
+
+                $palavras = explode(" ", $word1);
+                $MaiorPalavra = "";
+
+                foreach($palavras as $p){
+                    if(mb_strlen($p) > mb_strlen($MaiorPalavra))
+                        $MaiorPalavra = $p;
+                }
+                echo "<p>A maior palavra é: $MaiorPalavra</p>";
             }
         ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
