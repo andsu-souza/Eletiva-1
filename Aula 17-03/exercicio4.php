@@ -4,17 +4,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Exercício 3</title>
+  <title>Exercício 4</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
   <div class="container py-3">
-    <h1>Exercício 3</h1>
+    <h1>Exercício 4</h1>
     <form method="post">
       <div class="row mb-3 border-bottom pb-2">
-        <div class="col-md-2"><label>Cód:</label>
-        <input type="text" name="codigo[]" class="form-control" required></div>
         <div class="col-md-7"><label>Nome:</label>
         <input type="text" name="nome[]" class="form-control" required></div>
         <div class="col-md-3"><label>Preço:</label>
@@ -22,8 +20,6 @@
       </div>
 
       <div class="row mb-3 border-bottom pb-2">
-        <div class="col-md-2"><label>Cód:</label>
-        <input type="text" name="codigo[]" class="form-control" required></div>
         <div class="col-md-7"><label>Nome:</label>
         <input type="text" name="nome[]" class="form-control" required></div>
         <div class="col-md-3"><label>Preço:</label>
@@ -31,8 +27,6 @@
       </div>
 
       <div class="row mb-3 border-bottom pb-2">
-        <div class="col-md-2"><label>Cód:</label>
-        <input type="text" name="codigo[]" class="form-control" required></div>
         <div class="col-md-7"><label>Nome:</label>
         <input type="text" name="nome[]" class="form-control" required></div>
         <div class="col-md-3"><label>Preço:</label>
@@ -40,8 +34,6 @@
       </div>
 
       <div class="row mb-3 border-bottom pb-2">
-        <div class="col-md-2"><label>Cód:</label>
-        <input type="text" name="codigo[]" class="form-control" required></div>
         <div class="col-md-7"><label>Nome:</label>
         <input type="text" name="nome[]" class="form-control" required></div>
         <div class="col-md-3"><label>Preço:</label>
@@ -49,8 +41,6 @@
       </div>
 
       <div class="row mb-3 border-bottom pb-2">
-        <div class="col-md-2"><label>Cód:</label>
-        <input type="text" name="codigo[]" class="form-control" required></div>
         <div class="col-md-7"><label>Nome:</label>
         <input type="text" name="nome[]" class="form-control" required></div>
         <div class="col-md-3"><label>Preço:</label>
@@ -62,45 +52,35 @@
 
     <?php
       if($_SERVER['REQUEST_METHOD'] == "POST"){
-        $codigos = $_POST['codigo'];
         $nomes   = $_POST['nome'];
         $precos  = $_POST['preco'];
           
         $produtos = [];
 
-        for ($i = 0; $i < count($codigos); $i++) {
-            $cod   = trim($codigos[$i]);
+        for ($i = 0; $i < count($nomes); $i++) {
             $nome  = trim($nomes[$i]);
             $valor = (float)$precos[$i];
 
             // Desconto de 10% se for maior que 100
-            if ($valor > 100) {
-                $valor = $valor * 0.90;
-            }
+            $precoI = $valor * 1.15;
 
             // Guardando o mapa dentro do mapa
-            $produtos[$cod] = [
-                "nome"  => $nome,
-                "preco" => $valor
-            ];
+            $produtos[$nome] = $precoI;
         }
 
-        // Ordenando pelo Nome
-        uasort($produtos, function($a, $b) {
-            return strcmp($a['nome'], $b['nome']);
-        });
+        // Ordenando pelo preço
+        asort($produtos);
 
-        echo "<h3>Tabela de Produtos (Ordenada por Nome):</h3>";
-        echo "<table class='table table-bordered'>";
-        foreach ($produtos as $codigo => $info) {
-            $precoFormatado = number_format($info['preco'], 2, ',', '.');
-            echo "<tr>
-                    <td><strong>Cód:</strong> $codigo</td>
-                    <td><strong>Produto:</strong> {$info['nome']}</td>
-                    <td><strong>Preço Final:</strong> R$ $precoFormatado</td>
-                </tr>";
+        echo "<h3>Tabela de Produtos (Ordenada por preço):</h3>";
+        echo "<ul class='list-group'>";
+        foreach ($produtos as $item => $valorFinal) {
+            $precoFormatado = number_format($valorFinal, 2, ',', '.');
+            echo "<li class='list-group-item d-flex justify-content-between align-items-center'>";
+            echo "$item";
+            echo "<span class='badge bg-primary rounded-pill'>R$ $precoFormatado</span>";
+            echo "</li>";
         }
-        echo "</table>";
+        echo "</ul>";
       }
     ?>
 
