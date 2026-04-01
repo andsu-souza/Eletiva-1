@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container py-3">
+        <h1></h1>
+        <form method="post">
+            <div class="row inline-row mb-3">
+                <div class="col-md-1">
+                    <label for="codigo" class="form-label">Código</label>
+                    <span class="input-group-text" id="basic-addon1">32</span>
+                </div>
+                <div class="col-md-5">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" id="nome" name="nome" class="form-control" required="" placeholder="Nome completo do cliente">
+                </div>
+                <div class="col-md-4">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" id="email" name="email" class="form-control" required="" placeholder="cliente@dominio.com">
+                </div>
+                <div class="col-md-2">
+                    <label for="cpf" class="form-label">CPF</label>
+                    <input type="number" id="cpf" name="cpf" class="form-control" required="" placeholder="Só numeros">
+                </div>
+                <div class="col-md-2">
+                    <label for="celular" class="form-label">N° Celular</label>
+                    <input type="number" id="celular" name="celular" class="form-control" required="" placeholder="N° do celular">
+                </div>
+                <div class="col-md-2">
+                    <label for="telefone" class="form-label">N° Telefone</label>
+                    <input type="number" id="telefone" name="telefone" class="form-control" required="" placeholder="N° Telefone">
+                </div>
+                <div class="col-md-2">
+                    <label for="cep" class="form-label">CEP</label>
+                    <input type="text" id="cep" name="cep" class="form-control" required="" placeholder="ex:19063900">
+                </div>
+                <div class="col-md-2">
+                    <label for="logradouro" class="form-label">Logradouro</label>
+                    <input type="text" id="logradouro" name="logradouro" class="form-control" required="" placeholder="ex: Rua 1400">
+                </div>
+                <div class="col-md-1">
+                    <label for="numero" class="form-label">N°</label>
+                    <input type="number" id="numero" name="numero" class="form-control" required="" placeholder="N°">
+                </div>
+                <div class="col-md-3">
+                    <label for="bairro" class="form-label">Bairro</label>
+                    <input type="text" id="bairro" name="bairro" class="form-control" required="" placeholder="Bairro">
+                </div>
+                <div class="col-md-3">
+                    <label for="cidade" class="form-label">Cidade</label>
+                    <input type="text" id="cidade" name="cidade" class="form-control" required="" placeholder="Cidade">
+                </div>
+                <div class="col-md-1">
+                    <label for="uf" class="form-label">UF</label>
+                    <input type="text" id="uf" name="uf" class="form-control" required="" placeholder="UF">
+                </div>
+                <div class="col-md-2">
+                    <label for="status" class="form-label">Status</label>
+                    <select id="status" name="status" class="form-select" required="">
+                        <option value="Selecione">Selecione</option>
+                        <option value="Numsei">Numsei</option>
+                    </select>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-danger">Resetar</button>
+                <button type="button" class="btn btn-success">Próximo</button>
+            </div>
+        </form>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+            crossorigin="anonymous"></script>
+    </div>
+</body>
+
+</html>
