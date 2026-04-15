@@ -15,18 +15,18 @@
     <div class="card shadow-sm" style="width: 100%; max-width: 450px;">
         <div class="card-body p-4">
             <h3 class="text-center mb-4">Criar Conta</h3>
-            <form>
+            <form method="post">
                 <div class="mb-3">
                     <label for="fullName" class="form-label">Nome Completo</label>
-                    <input type="text" class="form-control" id="fullName" placeholder="Digite seu nome" required>
+                    <input type="text" name="nome" class="form-control" id="fullName" placeholder="Digite seu nome" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" id="email" placeholder="seu@email.com" required>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="seu@email.com" required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Senha</label>
-                    <input type="password" class="form-control" id="password" placeholder="Mínimo 6 caracteres" required>
+                    <input type="password" name="senha" class="form-control" id="password" placeholder="Mínimo 6 caracteres" required>
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="terms" required>
@@ -34,8 +34,28 @@
                 </div>
                 <button type="submit" class="btn btn-success w-100">Finalizar Cadastro</button>
             </form>
+            <?php
+            
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                require_once('conexao.php');
+                $nome = $_POST['nome'];
+                $email = $_POST['email'];
+                $senha = password_hash($_POST['senha'], PASSWORD_BCRYPT);
+                try{
+                    $stmt = $pdo->prepare('INSERT INTO usuarios (nome, email, senha) VALUES (? , ? , ?);');
+                    if($stmt->execute([$nome,$email,$senha])){
+                        echo "<p>Cadastro realizado! Faça o login!<p>";
+                    } else{
+                        echo "<p>Erro ao cadastrar! Tente Novamente!<p>";
+                    }
+                } catch(Exception $e){
+                    echo "Erro: ".$e->getMessage();
+                }
+            }
+            
+            ?>
             <div class="text-center mt-3">
-                <p class="small">Já possui conta? <a href="login.html">Faça login</a></p>
+                <p class="small">Já possui conta? <a href="index.php">Faça login</a></p>
             </div>
         </div>
     </div>

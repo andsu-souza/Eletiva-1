@@ -39,7 +39,7 @@
                 $senha = $_POST['password'];
                 
                 try{
-                    $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE email = ?");
+                    $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = ?");
                     $stmt->execute([$email]);
                     $usuario = $stmt->fetch();
                     $senha_correta = password_verify($senha, $usuario['senha']);
@@ -58,7 +58,7 @@
             }
             ?>
             <div class="text-center mt-3">
-                <p class="small">Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+                <p class="small">Não tem uma conta? <a href="cadastro.php">Cadastre-se</a></p>
             </div>
         </div>
     </div>
