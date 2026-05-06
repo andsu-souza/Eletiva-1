@@ -9,6 +9,8 @@
         <input type="text" id="nome" name="nome" class="form-control" required="">
     </div>
     <button type="submit" class="btn btn-primary">Enviar</button>
+    <a href="categorias.php" class="btn btn-secondary">Voltar</a>
+
 </form>
 
 <?php   
