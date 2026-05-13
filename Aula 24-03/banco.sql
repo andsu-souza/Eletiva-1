@@ -15,21 +15,21 @@ CREATE SCHEMA IF NOT EXISTS `projetophp` DEFAULT CHARACTER SET utf8 ;
 USE `projetophp` ;
 
 -- -----------------------------------------------------
--- Table `projetophp`.`usuarios`
+-- Table `projetophp`.`usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `projetophp`.`usuarios` (
+CREATE TABLE IF NOT EXISTS `projetophp`.`usuario` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
-  `senha` VARCHAR(255) NOT NULL,
+  `nome` VARCHAR(255) NOT NULL,
+  `senha` TEXT NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `projetophp`.`categorias`
+-- Table `projetophp`.`categoria`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `projetophp`.`categorias` (
+CREATE TABLE IF NOT EXISTS `projetophp`.`categoria` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))
@@ -37,19 +37,18 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `projetophp`.`produtos`
+-- Table `projetophp`.`produto`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `projetophp`.`produtos` (
+CREATE TABLE IF NOT EXISTS `projetophp`.`produto` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(255) NOT NULL,
+  `descricao` VARCHAR(255) NOT NULL,
   `valor` DECIMAL(8,2) NOT NULL,
-  `estoque` INT NOT NULL,
-  `categorias_id` INT NOT NULL,
+  `categoria_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_produtos_categorias_idx` (`categorias_id` ASC),
-  CONSTRAINT `fk_produtos_categorias`
-    FOREIGN KEY (`categorias_id`)
-    REFERENCES `projetophp`.`categorias` (`id`)
+  INDEX `fk_produto_categoria_idx` (`categoria_id` ASC),
+  CONSTRAINT `fk_produto_categoria`
+    FOREIGN KEY (`categoria_id`)
+    REFERENCES `projetophp`.`categoria` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -58,3 +57,6 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
