@@ -18,7 +18,7 @@
         <?php foreach ($resultado as $r): ?>
         <tr>
             <td><?= $r['id'] ?></td>
-            <td><?= date('d/m/Y H:i', strtotime($r['data_hora'])) ?></td>
+            <td><?= date('H:i', strtotime($r['data_hora'])) ?></td>
             <td>
                 <a href="excluir_horario.php?id=<?= $r['id'] ?>" class="btn btn-sm btn-danger">Remover</a>
             </td>

@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `tecnico` (
 -- RF3: Horários
 CREATE TABLE IF NOT EXISTS `horario` (
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `data_hora` DATETIME NOT NULL
+  `data_hora` TIME NOT NULL
 ) ENGINE = InnoDB;
 
 -- RF4: Agendamentos (Relacionamentos)

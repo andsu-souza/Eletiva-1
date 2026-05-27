@@ -21,10 +21,10 @@
 <form method="post">
     <div class="mb-3">
         <label class="form-label">Data e Hora</label>
-        <input type="datetime-local" name="data_hora" class="form-control" required>
+        <input type="time" name="data_hora" class="form-control" required>
     </div>
     <button type="submit" class="btn btn-primary">Salvar Horário</button>
-    <a href="horarios.php" class="btn btn-secondary">Ver Agenda</a>
+    <a href="horarios.php" class="btn btn-secondary">Voltar</a>
 </form>
 <div class="mt-3"><?= $mensagem ?></div>
 

@@ -29,6 +29,7 @@
         <input type="text" name="telefone" class="form-control" required placeholder="(18) 99999-9999">
     </div>
     <button type="submit" class="btn btn-primary">Salvar</button>
+    <a href="clientes.php" class="btn btn-secondary">Voltar</a>
 </form>
 <?= $mensagem ?>
 

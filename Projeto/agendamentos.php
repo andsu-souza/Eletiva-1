@@ -20,7 +20,7 @@
     <div class="col-md-4 mb-3">
         <div class="card border-primary">
             <div class="card-header bg-primary text-white">
-                OS #<?= $os['id'] ?> - <?= date('d/m/Y H:i', strtotime($os['data_hora'])) ?>
+                OS #<?= $os['id'] ?> - <?= date('H:i', strtotime($os['data_hora'])) ?>
             </div>
             <div class="card-body">
                 <p><strong>Cliente:</strong> <?= $os['cliente'] ?></p>

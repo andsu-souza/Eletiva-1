@@ -49,7 +49,7 @@
         <label>Horário Disponível</label>
         <select name="horario" class="form-select" required>
             <?php foreach($horarios as $h): ?>
-                <option value="<?= $h['id'] ?>"><?= date('d/m/Y H:i', strtotime($h['data_hora'])) ?></option>
+                <option value="<?= $h['id'] ?>"><?= date('H:i', strtotime($h['data_hora'])) ?></option>
             <?php endforeach; ?>
         </select>
     </div>
